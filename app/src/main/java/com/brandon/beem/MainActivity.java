@@ -22,15 +22,6 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
-import static com.brandon.beem.MainActivity.permissions.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
-
 public class MainActivity extends AppCompatActivity{
 
     /**
@@ -47,11 +38,6 @@ public class MainActivity extends AppCompatActivity{
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
-    private boolean mLocationPermissionGranted = false;
-    public enum permissions {
-        PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,36 +64,6 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-    }
-
-    private void getDeviceLocation() {
-        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            mLocationPermissionGranted = true;
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-        }
-        // A step later in the tutorial adds the code to get the device location.
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[],
-                                           @NonNull int[] grantResults) {
-        mLocationPermissionGranted = false;
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    mLocationPermissionGranted = true;
-                }
-            }
-        }
-        updateLocationUI();
     }
 
 

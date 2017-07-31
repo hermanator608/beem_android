@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "295918475243",
+    "firebase_url": "https://beem-1b4c6.firebaseio.com",
+    "project_id": "beem-1b4c6",
+    "storage_bucket": "beem-1b4c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295918475243:android:026a005f91e38d53",
+        "android_client_info": {
+          "package_name": "com.brandon.beem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295918475243-sc6oee8f3l4ckpqn29j18osjl05nutli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brandon.beem",
+            "certificate_hash": "40a3fab06a4087ecda72701636c578d1fce9fa52"
+          }
+        },
+        {
+          "client_id": "295918475243-fb5eoc3qv7ijcksvfpt486oakmhu7vcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKkLBzUee6m7w5-vwIV6zI1qDSpou1Whw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295918475243-fb5eoc3qv7ijcksvfpt486oakmhu7vcl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
