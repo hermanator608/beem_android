@@ -1,6 +1,8 @@
 package com.brandon.beem;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Location;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -34,6 +37,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import static com.firebase.ui.auth.ui.ExtraConstants.EXTRA_IDP_RESPONSE;
 
 /**
  * An activity that displays a map showing the place at the device's current location.
@@ -71,6 +76,15 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
     private String[] mLikelyPlaceAddresses = new String[mMaxEntries];
     private String[] mLikelyPlaceAttributions = new String[mMaxEntries];
     private LatLng[] mLikelyPlaceLatLngs = new LatLng[mMaxEntries];
+
+    public static Intent createIntent(Context context, IdpResponse idpResponse) {
+        Intent startIntent = new Intent();
+        if (idpResponse != null) {
+            startIntent.putExtra(EXTRA_IDP_RESPONSE, idpResponse);
+        }
+
+        return startIntent.setClass(context, MapsActivityCurrentPlace.class);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
